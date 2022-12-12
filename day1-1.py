@@ -1,10 +1,5 @@
 
 
-
-
-
-
-
 def count_calories(x: str) -> int:
     myfile = open(x, "r")
     elves = []
@@ -19,7 +14,12 @@ def count_calories(x: str) -> int:
             elves.append(curElf)
             curElf = 0
     myfile.close()
-    return max(elves)
+
+    # Part 1 - Max 1 elf
+    print(max(elves))
+
+    # Part 2 - Max 3 elves
+    print(sum(sorted(elves)[-3:]))
 
 
-print(count_calories('data.txt'))
+count_calories('data.txt')
