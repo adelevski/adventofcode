@@ -1,11 +1,16 @@
+"""
+Atanas Delevski
+12/12/2022
+Advent of Code - Day 1 (Parts I & II)
+"""
 
 
-def count_calories(x: str) -> int:
-    myfile = open(x, "r")
+def consolidate(file_path):
+    file = open(file_path, "r")
     elves = []
     curElf = 0
-    while myfile:
-        line  = myfile.readline()
+    while file:
+        line = file.readline()
         if line.strip():
             curElf += int(line)
         elif line == "":
@@ -13,13 +18,23 @@ def count_calories(x: str) -> int:
         else:
             elves.append(curElf)
             curElf = 0
-    myfile.close()
-
-    # Part 1 - Max 1 elf
-    print(max(elves))
-
-    # Part 2 - Max 3 elves
-    print(sum(sorted(elves)[-3:]))
+    file.close()
+    return elves
 
 
-count_calories('data.txt')
+def main():
+    # Init
+    file_path = 'data/day1.txt'
+    
+    # Consolidate elf food 
+    elves = consolidate(file_path)
+
+    # Part 1 - Max 1 Elf
+    print(f"Part 1: {max(elves)}")
+
+    # Part 2 - Max 3 Elves 
+    print(f"Part 2: {sum(sorted(elves)[-3:])}")
+    
+
+if __name__ == "__main__":
+    main()
