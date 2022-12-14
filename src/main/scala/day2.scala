@@ -2,8 +2,7 @@ import scala.io.Source
 
 
 var fix = Map('A' -> 'X', 'B' -> 'Y', 'C' -> 'Z')
-def score(x: String): Int = {
-    println(x)
+def scoreOne(x: String): Int = {
     var score: Int = 0
 
     // draw
@@ -19,7 +18,19 @@ def score(x: String): Int = {
     score
 }
 
+def scoreTwo(x: String): Int = {
+    var score: Int = 0
+
+    // draw
+
+    // win
+
+    //base
+    score
+}
+
 @main def main() = {
     val lines: List[String] = Source.fromFile("day2.txt").getLines.toList
-    println(lines.map(score).sum)
+    println(lines.map(scoreOne).sum)
+    println(lines.map(scoreTwo).sum)
 }
