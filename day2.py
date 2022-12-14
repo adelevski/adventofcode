@@ -1,3 +1,9 @@
+"""
+Atanas Delevski
+12/13/2022
+Advent Of Code - Day 2 (Parts I & II)
+"""
+
 
 part_one_base_map = {
     'X': 1,
@@ -35,6 +41,7 @@ part_two_draw_base_map = {
     'C': 3
 }
 
+
 def score_one(first, second):
     # Initialization 
     score = 0
@@ -64,8 +71,7 @@ def score_two(first, second):
     # Base
     if second == 'Z': score += part_two_win_base_map[first] # win
     if second == 'X': score += part_two_lose_base_map[first] # lose
-    if second == 'Y': score += part_two_draw_base_map[first]
-
+    if second == 'Y': score += part_two_draw_base_map[first] # draw
 
     return score
 
