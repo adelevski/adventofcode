@@ -101,6 +101,8 @@ def main():
 
         # Part 2
         score_part_two += score_two(first, second)
+    
+    file.close()
 
     print_function(score_part_one, score_part_two)
 
