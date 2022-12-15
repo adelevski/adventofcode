@@ -43,7 +43,7 @@ def scoreTwo(x: String): Int = {
     score
 }
 
-@main def main() = {
+@main def day2() = {
     val lines: List[String] = Source.fromFile("day2.txt").getLines.toList
     println("Part 1: " + lines.map(scoreOne).sum)
     println("Part 2: " + lines.map(scoreTwo).sum)
