@@ -16,27 +16,32 @@ def score_asci(x):
 def part_one(x):
     first, second = x[:len(x)//2], x[len(x)//2:]
     letter_asci = ord([x for x in first if x in second][0])
+    print(letter_asci)
     return score_asci(letter_asci)
     
 def part_two(x):
     pass
 
 def main():
+    # Init
     file_path = "data/day3.txt"
     file = open(file_path, "r")
-    part_one_score = sum(part_one(line) for line in file)
-    part_two_score = 0
+    lines = file.readlines()
 
-    # part 2
-    for i in range(0, len(file), 3):
-        d1 = [letter for letter in file[i]]
-        d2 = [letter for letter in file[i+1]]
-        d3 = [letter for letter in file[i+2]]
-        df = [d1.add(d2)]
-        df = set([df.add(d3)])
-        part_two_score += score_asci(list(df)[0])
+    
+    # Part 1
+    scores = [part_one(line) for line in lines]
+    part_one_score = sum(scores)
+
+    # Part 2
+    part_two_score = 0
+    for i in range(0, len(lines), 3):
+        letter = list(set(lines[i]) & set(lines[i+1]) & set(lines[i+2]))[0]
+        letter_asci = ord(letter)
+        part_two_score += score_asci(letter_asci)
 
     print(f"Part 1: {part_one_score}")
+    print(f"Part 2: {part_two_score}")
     
 
 if __name__ == "__main__":
