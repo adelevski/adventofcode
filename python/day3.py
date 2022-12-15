@@ -29,10 +29,10 @@ def main():
 
     # part 2
     for i in range(0, len(file), 3):
-        d1 = set([letter for letter in file[i]])
-        d2 = set([letter for letter in file[i+1]])
-        d3 = set([letter for letter in file[i+2]])
-        df = set([d1.add(d2)])
+        d1 = [letter for letter in file[i]]
+        d2 = [letter for letter in file[i+1]]
+        d3 = [letter for letter in file[i+2]]
+        df = [d1.add(d2)]
         df = set([df.add(d3)])
         part_two_score += score_asci(list(df)[0])
 
