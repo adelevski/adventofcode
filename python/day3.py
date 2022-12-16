@@ -19,7 +19,10 @@ def part_one(x):
 def part_two(lines):
     part_two_score = 0
     for i in range(0, len(lines), 3):
-        part_two_score += score_asci(ord(list(set(lines[i]) & set(lines[i+1]) & set(lines[i+2]))[0]))
+        almost = list(set(lines[i]) & set(lines[i+1]) & set(lines[i+2]))
+        for x in almost:
+            if x != '\n':
+                part_two_score += score_asci(ord(x))
     return part_two_score
 
 def main():
