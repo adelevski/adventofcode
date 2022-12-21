@@ -1,6 +1,5 @@
 import scala.io.Source
 
-
 def lk(x: Char): Int = {
     val v1 = x.toInt - 'a'.toInt + 1
     val v2 = x.toInt - 'A'.toInt + 27
@@ -9,14 +8,12 @@ def lk(x: Char): Int = {
     ret
 }
 
-def eval(x: String): Int = {
-    val s1 = x.slice(0, x.length/2)
-    val s2 = x.slice(x.length/2, x.length)
-    val myval = s1.map(c => if (s2.indexOf(c) != -1) lk(c) else 0)
-    myval.max
+def eval(s1:String, s2:String, s3:String): Int = {
+    s1.map(c => if (s2.indexOf(c) != -1 && s3.indexOf(c) != -1) lk(c) else 0).max
 }
 
 @main def day3() = {
     val lines: List[String] = Source.fromFile("data/day3.txt").getLines.toList
-    println(lines.map(eval).sum)
+    val test = lines.grouped(3).map { x => eval(x(0), x(1), x(2)) }
+    println(test.sum)
 }

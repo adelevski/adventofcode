@@ -29,6 +29,11 @@ def part_one(lines):
             dumb_dict[cur] = dumb_dict[cur][:-1]
     return dumb_dict
 
+
+def part_two(lines):
+    pass
+
+
 def  main():
     # Init
     file_path = 'data/day5.txt'
