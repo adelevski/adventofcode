@@ -1,7 +1,7 @@
 """
 Atanas Delevski
 12/20/2022
-Advent of Code 2022 - Day 4 (Part I & II?)
+Advent of Code 2022 - Day 4 (Part I & II)
 """
 
 
