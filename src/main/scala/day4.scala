@@ -16,7 +16,7 @@ def proc2(x: String): Int = {
 }
 
 
-@main def day4() = {
+def day4() = {
     val lines: List[String] = Source.fromFile("data/day4.txt").getLines.toList
     println(s"Part 1: ${lines.map(proc).sum}")
     println(s"Part 2: ${lines.map(proc2).sum}")
