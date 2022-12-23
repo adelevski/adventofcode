@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import time
 
-SCRIPT_DIR = Path(__file__).parent
+SCRIPT_DIR = Path(__file__).parent.parent
 INPUT_FILE = Path(SCRIPT_DIR, "data/day7.txt")
 
 FS_SZ = 70000000
