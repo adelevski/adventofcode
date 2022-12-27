@@ -24,24 +24,20 @@ class Tree:
                 return False
         return True
 
+    def scenic_score(self, neighbors):
+        pass
+        
 
-def main():
-    with open(INPUT_FILE, "rt") as f:
-        data = f.read().splitlines()
-
-    width, height = len(data[0]), len(data)
-    perim = (width-2)*2 + (height-2)*2 + 4
-
-    ans = 0
+def part_one(data: list[str]) -> int:
+    w, h, ans = len(data[0]), len(data), 0
+    perim = (w-2)*2 + (h-2)*2 + 4
     
-
-    for r in range(1, height-1):
-        for c in range(1, width-1):
+    for r in range(1, h-1):
+        for c in range(1, w-1):
             cur_tree = Tree(data[r][c])
 
             # UP
             trees_above = []
-
             for i in range(r-1, -1, -1):
                 trees_above.append(data[i][c])
             above = cur_tree.is_not_blocked(trees_above)
@@ -66,8 +62,76 @@ def main():
 
             if (above or below or left or right):
                 ans += 1
-        
-    print(ans + perim)
+    return ans+perim
+
+
+def part_two(data):
+    w, h, ans = len(data[0]), len(data), 0
+    for r in range(1, h-1):
+        for c in range(1, w-1):
+            cur_tree = Tree(data[r][c])
+            # print(f"current tree: {cur_tree._height}")
+            # Above
+            above = 1
+            for i in range(r-1, -1, -1):
+                # print(f"above: {data[i][c]}")
+                if int(data[i][c]) < cur_tree._height and i != 0:
+                    # print(f"above += 1, {data[i][c]}")
+                    above += 1
+                else:
+                    break
+
+            # Below
+            below = 1
+            for i in range(r+1, h):
+                # print(f"below: {data[i][c]}")
+                if int(data[i][c]) < cur_tree._height and i != h-1:
+                    # print(f"below += 1, {data[i][c]}")
+                    below += 1
+                else:
+                    break
+
+            # Left
+            left = 1
+            for i in range(c-1, -1, -1):
+                # print(f"left: {data[r][i]}")
+                if int(data[r][i]) < cur_tree._height and i != 0:
+                    # print(f"left += 1, {data[r][i]}")
+                    left += 1
+                else:
+                    break
+
+            # Right
+            right = 1
+            for i in range(c+1, w):
+                # print(f"right: {data[r][i]}")
+                if int(data[r][i]) < cur_tree._height and i != w-1:
+                    # print(f"right += 1, {data[r][i]}")
+                    right += 1
+                else:
+                    break
+
+            # print(f"above: {above}, below: {below}, left: {left}, right: {right}")
+            # print(f"last ans: {ans}")
+            ans = max(above * below * left * right, ans)
+            # print(f"new ans: {ans}")
+    return ans
+
+
+def main():
+    # Init
+    with open(INPUT_FILE, "rt") as f:
+        data = f.read().splitlines()
+
+    # Part 1
+    part_one_answer = part_one(data)
+
+    # Part 2
+    part_two_answer = part_two(data)
+
+    # Print
+    print(f"Part 1: {part_one_answer}")
+    print(f"Part 2: {part_two_answer}")
 
 
 if __name__ == "__main__":
