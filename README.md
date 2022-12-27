@@ -2,7 +2,7 @@ https://adventofcode.com/2022
 
 Last Updated: 12/21/2022
 
-## Stars Collected: **`15`**
+## Stars Collected: **`16`**
 
 | Day |Python | Scala |
 |:---:|:---:|:---:|
