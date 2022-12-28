@@ -62,7 +62,11 @@ def main():
             print(row)
         print(f"Row: {cur_row}, Col: {cur_col}")
 
-
+        for row in grid:
+            for sign in row:
+                if sign == '#' or sign == 's':
+                    ans += 1
+    print(ans)
     f.close()
 
 
