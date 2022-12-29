@@ -2,6 +2,8 @@
 Atanas Delevski
 12/27/2022
 Advent of Code 2022 - Day 9
+
+This code was taken from GitHub: @jonathanpaulson/AdventOfCode
 """
 import time
 
